@@ -8,9 +8,11 @@ public class NhanVien {
     private String tenDangNhap;
     private String matKhau;
     private String tenNv;
+    private int soDienThoai;
+    private String email;
     private Date ngaySinh;
+    private boolean gioiTinh;
     private Date ngayBatDau;
-    private Date ngayKetthuc;
     private String diaChi;
     private String chucVu;
     private String maVt;
@@ -18,14 +20,16 @@ public class NhanVien {
     public NhanVien() {
     }
 
-    public NhanVien(String maNv, String tenDangNhap, String matKhau, String tenNv, Date ngaySinh, Date ngayBatDau, Date ngayKetthuc, String diaChi, String chucVu, String maVt) {
+    public NhanVien(String maNv, String tenDangNhap, String matKhau, String tenNv, int soDienThoai, String email, Date ngaySinh, boolean gioiTinh, Date ngayBatDau, String diaChi, String chucVu, String maVt) {
         this.maNv = maNv;
         this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;
         this.tenNv = tenNv;
+        this.soDienThoai = soDienThoai;
+        this.email = email;
         this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
         this.ngayBatDau = ngayBatDau;
-        this.ngayKetthuc = ngayKetthuc;
         this.diaChi = diaChi;
         this.chucVu = chucVu;
         this.maVt = maVt;
@@ -63,6 +67,22 @@ public class NhanVien {
         this.tenNv = tenNv;
     }
 
+    public int getSoDienThoai() {
+        return soDienThoai;
+    }
+
+    public void setSoDienThoai(int soDienThoai) {
+        this.soDienThoai = soDienThoai;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Date getNgaySinh() {
         return ngaySinh;
     }
@@ -71,20 +91,20 @@ public class NhanVien {
         this.ngaySinh = ngaySinh;
     }
 
+    public boolean isGioiTinh() {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(boolean gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
     public Date getNgayBatDau() {
         return ngayBatDau;
     }
 
     public void setNgayBatDau(Date ngayBatDau) {
         this.ngayBatDau = ngayBatDau;
-    }
-
-    public Date getNgayKetthuc() {
-        return ngayKetthuc;
-    }
-
-    public void setNgayKetthuc(Date ngayKetthuc) {
-        this.ngayKetthuc = ngayKetthuc;
     }
 
     public String getDiaChi() {
@@ -111,4 +131,5 @@ public class NhanVien {
         this.maVt = maVt;
     }
 
+    
 }

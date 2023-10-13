@@ -18,7 +18,7 @@ public class NhanVienUI extends javax.swing.JPanel {
         try {
             List<NhanVien> list = dao.selectAll();
             for (NhanVien nv : list) {
-                Object[] row = { nv.getTenDangNhap(), nv.getMatKhau(), nv.getTenNv(), nv.getNgaySinh(), nv.getNgayBatDau(),
+                Object[] row = {nv.getTenDangNhap(), nv.getMatKhau(), nv.getTenNv(), nv.getNgaySinh(), nv.getNgayBatDau(),
                     nv.getNgayKetthuc(), nv.getDiaChi(), nv.getChucVu(), nv.getMaVt()};
                 model.addRow(row);
             }

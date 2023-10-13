@@ -20,7 +20,7 @@ import java.sql.*;
 public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
 
     String insertSql = "INSERT INTO NhanVien (MaNV, TenDangNhap, MatKhau, TenNV, soDienThoai, email, ngaySinh, GioiTinh ngayBatDau, "
-            + "DiaChi, ChucVu, MaVT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "DiaChi, ChucVu, MaVT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     String updateSql = "UPDATE NhanVien set TenDangNhap = ?, MatKhau = ?, TenNV = ?, NgaySinh = ?, ngayBatDau = ?,"
             + "ngayKetThuc = ?, DiaChi = ?, ChucVu = ?, MaVT = ? WHERE MaNV = ?";
     String deleteSql = "DELETE FROM NhanVien WHERE MaNV = ?";
@@ -30,7 +30,7 @@ public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
     @Override
     public void insert(NhanVien entity) {
         try {
-            XJdbc.update(insertSql, entity.getMaNv(), entity.getTenDangNhap(), entity.getMatKhau(), entity.getTenNv(), entity.getNgaySinh(), entity.getNgayBatDau(), entity.getNgayKetthuc(), entity.getDiaChi(), entity.getChucVu(), entity.getMaVt());
+            XJdbc.update(insertSql, entity.getMaNv(), entity.getTenDangNhap(), entity.getMatKhau(), entity.getTenNv(), entity.getSoDienThoai(), entity.getEmail(), entity.getNgaySinh(), entity.getNgayBatDau(), entity.getDiaChi(), entity.getChucVu(), entity.getMaVt());
         } catch (SQLException ex) {
             Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -39,7 +39,7 @@ public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
     @Override
     public void update(NhanVien entity) {
         try {
-            XJdbc.update(insertSql, entity.getTenDangNhap(), entity.getMatKhau(), entity.getTenNv(), entity.getNgaySinh(), entity.getNgayBatDau(), entity.getNgayKetthuc(), entity.getDiaChi(), entity.getChucVu(), entity.getMaVt(), entity.getMaNv());
+            XJdbc.update(insertSql, entity.getTenDangNhap(), entity.getMatKhau(), entity.getTenNv(), entity.getSoDienThoai(), entity.getEmail(), entity.getNgaySinh(), entity.getNgayBatDau(), entity.getDiaChi(), entity.getChucVu(), entity.getMaVt(), entity.getMaNv());
         } catch (SQLException ex) {
             Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,7 +61,7 @@ public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
 
     @Override
     public NhanVien selectById(String key) {
-        List<NhanVien> list = this.selectBySql(selectByID, key);
+                List<NhanVien> list = this.selectBySql(selectByID, key);
         if (list.isEmpty()) {
             return null;
         }
@@ -70,7 +70,7 @@ public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
 
     @Override
     protected List<NhanVien> selectBySql(String sql, Object... args) {
-        List<NhanVien> list = new ArrayList<>();
+                List<NhanVien> list = new ArrayList<>();
         try {
             ResultSet rs = XJdbc.query(sql, args);
             while (rs.next()) {                
@@ -79,12 +79,14 @@ public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
                 nv.setTenDangNhap(rs.getString(1));
                 nv.setMatKhau(rs.getString(2));
                 nv.setTenNv(rs.getString(3));
-                nv.setNgaySinh(rs.getDate(4));
-                nv.setNgayBatDau(rs.getDate(5));
-                nv.setNgayKetthuc(rs.getDate(6));
-                nv.setDiaChi(rs.getString(7));
-                nv.setChucVu(rs.getString(8));
-                nv.setMaVt(rs.getString(9));
+                nv.setSoDienThoai(rs.getInt(4));
+                nv.setEmail(rs.getString(5));
+                nv.setNgaySinh(rs.getDate(6));
+                nv.setGioiTinh(rs.getBoolean(7));
+                nv.setNgayBatDau(rs.getDate(8));
+                nv.setDiaChi(rs.getString(9));
+                nv.setChucVu(rs.getString(10));
+                nv.setMaVt(rs.getString(11));
                 list.add(nv);
             }
             rs.close();
