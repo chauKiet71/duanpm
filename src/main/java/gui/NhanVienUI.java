@@ -9,14 +9,21 @@ public class NhanVienUI extends javax.swing.JPanel {
 
     public NhanVienUI() {
         initComponents();
+        fillTable();
     }
     NhanVienDAO dao = new NhanVienDAO();
     void fillTable(){
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
         try {
-            List<NhanVien> list = dao.se
+            List<NhanVien> list = dao.selectAll();
+            for (NhanVien nv : list) {
+                Object[] row = { nv.getTenDangNhap(), nv.getMatKhau(), nv.getTenNv(), nv.getNgaySinh(), nv.getNgayBatDau(),
+                    nv.getNgayKetthuc(), nv.getDiaChi(), nv.getChucVu(), nv.getMaVt()};
+                model.addRow(row);
+            }
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     @SuppressWarnings("unchecked")

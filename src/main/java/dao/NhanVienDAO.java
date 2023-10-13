@@ -19,8 +19,8 @@ import java.sql.*;
  */
 public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
 
-    String insertSql = "INSERT INTO NhanVien (MaNV, TenDangNhap, MatKhau, TenNV, NgaySinh, ngayBatDau, "
-            + "ngayKetThuc, DiaChi, ChucVu, MaVT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    String insertSql = "INSERT INTO NhanVien (MaNV, TenDangNhap, MatKhau, TenNV, soDienThoai, email, ngaySinh, GioiTinh ngayBatDau, "
+            + "DiaChi, ChucVu, MaVT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     String updateSql = "UPDATE NhanVien set TenDangNhap = ?, MatKhau = ?, TenNV = ?, NgaySinh = ?, ngayBatDau = ?,"
             + "ngayKetThuc = ?, DiaChi = ?, ChucVu = ?, MaVT = ? WHERE MaNV = ?";
     String deleteSql = "DELETE FROM NhanVien WHERE MaNV = ?";
