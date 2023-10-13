@@ -75,26 +75,26 @@ public class NhanVienDAO extends PhoneDAO<NhanVien, String> {
             ResultSet rs = XJdbc.query(sql, args);
             while (rs.next()) {                
                 NhanVien nv = new NhanVien();
-                nv.setMaNv(rs.getString(0));
-                nv.setTenDangNhap(rs.getString(1));
-                nv.setMatKhau(rs.getString(2));
-                nv.setTenNv(rs.getString(3));
-                nv.setSoDienThoai(rs.getInt(4));
-                nv.setEmail(rs.getString(5));
-                nv.setNgaySinh(rs.getDate(6));
-                nv.setGioiTinh(rs.getBoolean(7));
-                nv.setNgayBatDau(rs.getDate(8));
-                nv.setDiaChi(rs.getString(9));
-                nv.setChucVu(rs.getString(10));
-                nv.setMaVt(rs.getString(11));
+                nv.setMaNv(rs.getString(1));
+                nv.setTenDangNhap(rs.getString(2));
+                nv.setMatKhau(rs.getString(3));
+                nv.setTenNv(rs.getString(4));
+                nv.setSoDienThoai(rs.getInt(5));
+                nv.setEmail(rs.getString(6));
+                nv.setNgaySinh(rs.getDate(7));
+                nv.setGioiTinh(rs.getBoolean(8));
+                nv.setNgayBatDau(rs.getDate(9));
+                nv.setDiaChi(rs.getString(10));
+                nv.setChucVu(rs.getString(11));
+                nv.setMaVt(rs.getString(12));
                 list.add(nv);
             }
-            rs.close();
+//            rs.close();
             rs.getStatement();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return list;
     }
 
 }

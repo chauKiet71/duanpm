@@ -18,8 +18,8 @@ public class NhanVienUI extends javax.swing.JPanel {
         try {
             List<NhanVien> list = dao.selectAll();
             for (NhanVien nv : list) {
-                Object[] row = {nv.getTenDangNhap(), nv.getMatKhau(), nv.getTenNv(), nv.getNgaySinh(), nv.getNgayBatDau(),
-                    nv.getNgayKetthuc(), nv.getDiaChi(), nv.getChucVu(), nv.getMaVt()};
+                Object[] row = { nv.getTenNv(), nv.getSoDienThoai(), nv.getEmail(), nv.getNgaySinh(),
+                    nv.isGioiTinh(), nv.getDiaChi(),"", nv.getMaVt(), nv.getNgayBatDau()};
                 model.addRow(row);
             }
         } catch (Exception e) {
